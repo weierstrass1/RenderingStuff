@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Render\WindowsFormsRender\WindowsFormsRender.csproj" />
+    <ProjectReference Include="..\DyzenCanvasControllers\DyxenCanvasControllers.csproj" />
+  </ItemGroup>
+
+</Project>

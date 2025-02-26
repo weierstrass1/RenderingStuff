@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Dyxen": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
