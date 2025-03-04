@@ -5,19 +5,19 @@ using SNESRender.ColorManagement;
 
 namespace SNESRender
 {
-    public partial class BGR555ToBytes : IKernel
+    public partial class BGR555ToPal : IKernel
     {
         public Accelerator Accelerator { get; private set; }
         public static IKernel? CreateInstance(Accelerator accel)
         {
-            return new BGR555ToBytes(accel);
+            return new BGR555ToPal(accel);
         }
-        public BGR555ToBytes(Accelerator accel)
+        public BGR555ToPal(Accelerator accel)
         {
             Accelerator = accel;
             kernel = accel
                 .LoadAutoGroupedStreamKernel<Index1D, ArrayView<BGR555Color>, ArrayView<byte>, int, int>
-                (bgr555ToBytes);
+                (bgr555ToPal);
         }
         public void Run(MemoryBuffer1D<BGR555Color, Stride1D.Dense> src, MemoryBuffer1D<byte, Stride1D.Dense> dest,
             int srcOffset, int destOffset, int numberOfColors)

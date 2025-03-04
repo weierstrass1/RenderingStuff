@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using ILGPUUtils.ColorType;
+using System.Drawing;
 
 namespace SNESRender.ColorManagement;
 
@@ -13,12 +14,12 @@ public struct BGR555Color
             (byte)0 :
             (byte)255;
     }
-    public byte R { get => (byte)(8 * (Value % 0x1F)); }
-    public byte G { get => (byte)(8 * ((Value >> 5) % 0x1F)); }
-    public byte B { get => (byte)(8 * ((Value >> 10) % 0x1F)); }
+    public byte R { get => (byte)((Value & 0x1F) << 3); }
+    public byte G { get => (byte)(((Value >> 5) & 0x1F) << 3); }
+    public byte B { get => (byte)(((Value >> 10) & 0x1F) << 3); }
     public BGR555Color(byte highByte, byte lowByte)
     {
-        Value = (ushort)((highByte<<8)|(lowByte));
+        Value = (ushort)((highByte << 8) | (lowByte));
     }
     public BGR555Color(ushort value)
     {
@@ -55,6 +56,18 @@ public struct BGR555Color
     }
     public static implicit operator Color(BGR555Color c)
     {
-        return System.Drawing.Color.FromArgb(c.A, c.R, c.G, c.B);
+        return Color.FromArgb(c.A, c.R, c.G, c.B);
+    }
+    public static implicit operator BGR555Color(ARGBColor c)
+    {
+        return new(c.A, c.R, c.G, c.B);
+    }
+    public static implicit operator ARGBColor(BGR555Color c)
+    {
+        return new(c.A, c.R, c.G, c.B);
+    }
+    public override string ToString()
+    {
+        return $"{Value:X4}: A:{A:X2} - R:{R:X2} - G:{G:X2} - B:{B:X2}";
     }
 }

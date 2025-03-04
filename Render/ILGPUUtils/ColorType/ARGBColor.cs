@@ -28,7 +28,7 @@ namespace ILGPUUtils.ColorType
         }
         public static implicit operator Color(ARGBColor c)
         {
-            return Color.FromArgb(c.A,c.R,c.G,c.B);
+            return Color.FromArgb(c.A, c.R, c.G, c.B);
         }
     }
 }

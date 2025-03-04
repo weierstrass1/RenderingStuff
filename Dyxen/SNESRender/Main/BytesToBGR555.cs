@@ -19,7 +19,7 @@ namespace SNESRender
                 .LoadAutoGroupedStreamKernel<Index1D, ArrayView<byte>, ArrayView<BGR555Color>, int, int>
                 (bytesToBGR555);
         }
-        public void Run(MemoryBuffer1D<byte,Stride1D.Dense> src, MemoryBuffer1D<BGR555Color, Stride1D.Dense> dest,
+        public void Run(MemoryBuffer1D<byte, Stride1D.Dense> src, MemoryBuffer1D<BGR555Color, Stride1D.Dense> dest,
             int srcOffset, int destOffset, int numberOfColors)
         {
             Run(src.View, dest.View, srcOffset, destOffset, numberOfColors);

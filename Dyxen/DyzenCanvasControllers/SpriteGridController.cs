@@ -1,4 +1,5 @@
-﻿using ILGPU;
+﻿using DyxenCanvasControllers.Interfaces;
+using ILGPU;
 using RenderLibrary;
 using RenderLibrary.Decorators;
 using RenderLibrary.Drawing;
@@ -7,7 +8,7 @@ using Grid = RenderLibrary.Drawing.Grid;
 
 namespace DyxenCanvasControllers;
 
-public class SpriteGridController
+public class SpriteGridController : IZoom
 {
     public Index2D MaxSize { get; private set; }
     public uint Zoom
@@ -95,6 +96,9 @@ public class SpriteGridController
             refreshCanvas();
         }
     }
+
+    public ZoomeableDrawingCanvas ZoomedCanvas { get => Canvas; }
+
     public ZoomeableDrawingCanvas Canvas;
     public MultilayerCanvas BaseCanvas;
     public DrawingCanvas ChessCanvas;
@@ -102,8 +106,8 @@ public class SpriteGridController
     public event Action<BaseDrawingCanvas>? CanvasChanged
     {
         add
-        { 
-            Canvas.Changed += value; 
+        {
+            Canvas.Changed += value;
         }
         remove
         {
@@ -123,14 +127,14 @@ public class SpriteGridController
         BaseCanvas.AddLayer(ChessCanvas);
         Canvas = new(width, height, BaseCanvas);
         Canvas.Changed += canvas => drawGrid();
-        Offset = (16, 8);
+        Offset = (0, 0);
         CellSize = cellSize;
         Zoom = 2;
         drawGrid();
     }
     private void drawChessGrid()
     {
-        ChessBackground  chess = KernelManager.GetKernel<ChessBackground>();
+        ChessBackground chess = KernelManager.GetKernel<ChessBackground>()!;
         chess.Run(ChessCanvas.Buffer.View, ChessGridColor1, ChessGridColor2, (0, 0), CellSize, ChessCanvas.Size);
         ChessCanvas.TriggerChangedEvent();
     }
@@ -138,7 +142,7 @@ public class SpriteGridController
     {
         if (!ShowGrid)
             return;
-        Grid grid = KernelManager.GetKernel<Grid>();
+        Grid grid = KernelManager.GetKernel<Grid>()!;
         grid.Run(Canvas.View, GridColor, GridConfig.LineLength, GridConfig.Spacing, (0, 0), ZoomedCellSize, Canvas.Offset, Canvas.Size);
     }
     private void refreshCanvas()

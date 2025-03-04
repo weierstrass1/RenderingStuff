@@ -15,7 +15,7 @@ public partial class CopyTo : IKernel
             return;
         int j = IndexUtils.Index2DToInt(index, dimSrc);
         if (skipInvisible == CopyToSkipInvisible.Yes && src[j + 3] == 0)
-                return;
+            return;
         int i = IndexUtils.Index2DToInt(position, dimDest);
         IndexUtils.SetValue(i, dest, src[j], src[j + 1], src[j + 2], src[j + 3]);
     }

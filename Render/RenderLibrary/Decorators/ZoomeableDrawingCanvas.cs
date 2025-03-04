@@ -44,7 +44,13 @@ public class ZoomeableDrawingCanvas : DrawingCanvasDecorator
     }
     public override void Dispose()
     {
-        base.Dispose();
         MainCanvas.Changed -= canvas => Refresh();
+        base.Dispose();
+        GC.SuppressFinalize(this);
+    }
+
+    public EventHandler ChangeSize(object width, object height)
+    {
+        throw new NotImplementedException();
     }
 }

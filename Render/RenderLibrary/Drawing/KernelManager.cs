@@ -6,23 +6,22 @@ namespace RenderLibrary.Drawing;
 public class KernelManager
 {
     private static KernelManager? _instance;
-    private static KernelManager instance
+    public static KernelManager Instance
     {
         get
         {
-            if (_instance == null)
-                _instance = new();
+            _instance ??= new();
             return _instance;
         }
     }
-    public static RenderCore Core { get => instance._core; }
+    public static RenderCore Core { get => Instance._core; }
     private readonly Dictionary<Type, IKernel> _kernels;
-    private Accelerator _mainAccelerator;
-    private RenderCore _core;
+    private readonly Accelerator _mainAccelerator;
+    private readonly RenderCore _core;
     private KernelManager()
     {
         _core = new RenderCore();
-        _mainAccelerator = _core.MainGPUAccelerator;
+        _mainAccelerator = _core.MainAccelerator;
         _kernels = [];
     }
     private void addKernel<K>() where K : IKernel
@@ -43,6 +42,6 @@ public class KernelManager
     }
     public static K? GetKernel<K>() where K : IKernel
     {
-        return instance.getKernel<K>();
+        return Instance.getKernel<K>();
     }
 }

@@ -1,3 +1,5 @@
+using SNESComponents;
+
 namespace Dyxen;
 
 public partial class Form1 : Form

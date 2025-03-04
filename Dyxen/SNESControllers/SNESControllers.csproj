@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Render\RenderCanvasExtension\RenderCanvasExtension.csproj" />
+    <ProjectReference Include="..\DyzenCanvasControllers\DyxenCanvasControllers.csproj" />
+    <ProjectReference Include="..\SNESRender\SNESRender.csproj" />
+  </ItemGroup>
+
+</Project>

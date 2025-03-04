@@ -1,5 +1,5 @@
-﻿using ILGPU.Runtime;
-using ILGPU;
+﻿using ILGPU;
+using ILGPU.Runtime;
 using ILGPUUtils.ColorType;
 
 namespace RenderLibrary.Drawing;

@@ -10,6 +10,7 @@
     <ProjectReference Include="..\..\Render\DrawingExtension\DrawingExtension.csproj" />
     <ProjectReference Include="..\..\Render\RenderCanvasExtension\RenderCanvasExtension.csproj" />
     <ProjectReference Include="..\..\Render\RenderLibrary\RenderLibrary.csproj" />
+    <ProjectReference Include="..\SNESRender\SNESRender.csproj" />
   </ItemGroup>
 
 </Project>

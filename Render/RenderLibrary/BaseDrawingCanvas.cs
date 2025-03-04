@@ -8,8 +8,8 @@ namespace RenderLibrary;
 
 public abstract class BaseDrawingCanvas : IDisposable
 {
-    public int Width 
-    { 
+    public int Width
+    {
         get => Size.X;
     }
     public int Height
@@ -76,7 +76,7 @@ public abstract class BaseDrawingCanvas : IDisposable
     }
     public void Clear(DrawFillSquare drawFillSquare)
     {
-        DrawFillSquare((0,0), Size, default, drawFillSquare);
+        DrawFillSquare((0, 0), Size, default, drawFillSquare);
     }
     public void DrawFillSquare(Index2D offset, Index2D size, Color value)
     {

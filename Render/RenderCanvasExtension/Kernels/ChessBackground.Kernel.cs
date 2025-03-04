@@ -13,7 +13,7 @@ public partial class ChessBackground : IKernel
         int x = Math.Abs(position.X) / cellSize.X;
         int y = Math.Abs(position.Y) / cellSize.Y;
         ARGBColor value = (x & 0x01) == (y & 0x01) ?
-            value1 : 
+            value1 :
             value2;
         int i = IndexUtils.Index2DToInt(index, dim);
         IndexUtils.SetValue(i, dest, value);

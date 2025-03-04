@@ -23,7 +23,7 @@ public class MultilayerCanvas : DrawingCanvasDecorator
     public void refresh()
     {
         Clear();
-        foreach(var layer in layers)
+        foreach (var layer in layers)
         {
             Draw(layer, (0, 0));
         }
