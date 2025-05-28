@@ -15,16 +15,23 @@
     <ProjectReference Include="..\DyxenCanvasComponents\DyxenCanvasComponents.csproj" />
     <ProjectReference Include="..\ResourceManager\ResourceManager.csproj" />
     <ProjectReference Include="..\SNESComponents\SNESComponents.csproj" />
+    <ProjectReference Include="..\SNESGraphicsProcess\SNESGraphicsProcess.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Resources\default.pal">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Resources\ExGFXF34.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\GFX00.bin">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Resources\GFX01.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\green.pal">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

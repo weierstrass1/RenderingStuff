@@ -12,8 +12,8 @@ internal static class Program
     static void Main()
     {
         SNESPalette palette = new(256);
-        if (File.Exists("Resources/default.pal"))
-            palette.Load(File.ReadAllBytes("Resources/default.pal"), SnesPaletteFormat.Pal, 0, 0);
+        if (File.Exists("Resources/green.pal"))
+            palette.Load(File.ReadAllBytes("Resources/green.pal"), SnesPaletteFormat.Pal, 0, 0);
 
         SingletonManager.Add(palette);
         // To customize application configuration such as set high DPI settings or default font,

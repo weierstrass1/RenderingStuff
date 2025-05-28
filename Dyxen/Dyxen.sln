@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNESComponents", "SNESCompo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceManager", "ResourceManager\ResourceManager.csproj", "{77FDDEE3-F7B7-42B5-A8D8-4DDBB33F59FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNESGraphicsProcess", "SNESGraphicsProcess\SNESGraphicsProcess.csproj", "{D5FD8617-9903-43A8-A44E-C6D151C49365}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{77FDDEE3-F7B7-42B5-A8D8-4DDBB33F59FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77FDDEE3-F7B7-42B5-A8D8-4DDBB33F59FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77FDDEE3-F7B7-42B5-A8D8-4DDBB33F59FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5FD8617-9903-43A8-A44E-C6D151C49365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FD8617-9903-43A8-A44E-C6D151C49365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FD8617-9903-43A8-A44E-C6D151C49365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FD8617-9903-43A8-A44E-C6D151C49365}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

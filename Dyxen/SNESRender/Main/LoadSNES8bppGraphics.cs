@@ -5,27 +5,27 @@ using SNESRender.Main;
 
 namespace SNESRender
 {
-    public partial class LoadSNES4bppGraphics : IKernel, ILoadSNESGraphics
+    public partial class LoadSNES8bppGraphics : IKernel, ILoadSNESGraphics
     {
-        public static int BPPs { get => 4; }
+        public static int BPPs { get => 8; }
         public Accelerator Accelerator { get; private set; }
         public static IKernel? CreateInstance(Accelerator accel)
         {
-            return new LoadSNES4bppGraphics(accel);
+            return new LoadSNES8bppGraphics(accel);
         }
-        public LoadSNES4bppGraphics(Accelerator accel)
+        public LoadSNES8bppGraphics(Accelerator accel)
         {
             Accelerator = accel;
             kernel = accel
                 .LoadAutoGroupedStreamKernel<Index1D, ArrayView<byte>, ArrayView<byte>, int, int>
-                (loadSNES4bppGraphics);
+                (loadSNES8bppGraphics);
         }
         public void Run(ArrayView<byte> src, ArrayView<byte> dest, int srcOffset, int destOffset)
         {
             if (Accelerator == null)
                 return;
             Accelerator.Synchronize();
-            kernel(src.IntExtent / 32, src, dest, srcOffset, destOffset);
+            kernel(src.IntExtent / 64, src, dest, srcOffset, destOffset);
         }
     }
 }

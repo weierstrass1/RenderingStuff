@@ -13,7 +13,7 @@ namespace SNESRender
             Index1D destIndex = (index + destOffset) << 2;
             if (destIndex >= dest.Extent)
                 return;
-            Index1D srcIndex = index + srcOffset;
+            Index1D srcIndex = (index + srcOffset);
             if (srcIndex >= src.Extent)
                 return;
             int srcColor = src[srcIndex];
